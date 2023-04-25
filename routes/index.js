@@ -32,7 +32,7 @@ router.get('/login', async function (req, res, next) {
 
 router.post('/login', async function (req, res, next) {
     const { username, password } = req.body;
-    const [users] = await promisePool.query('SELECT * FROM adh31users WHERE name = ?', [username]);
+    const [users] = await promisePool.query('SELECT * FROM adh31customers WHERE name = ?', [username]);
 
 
     if (username.length == 0) {
@@ -42,7 +42,7 @@ router.post('/login', async function (req, res, next) {
         return res.send('Password is Required')
     }
 
-    const [user] = await promisePool.query('SELECT * FROM adh31users WHERE name = ?', [username]);
+    const [user] = await promisePool.query('SELECT * FROM adh31customers WHERE name = ?', [username]);
 
     if (user.length > 0) {
         bcrypt.compare(password, user[0].password, function (err, result) {
@@ -105,14 +105,14 @@ router.post('/register', async function (req, res, next) {
         return res.send('Passwords do not match')
     }
 
-    const [user] = await promisePool.query('SELECT name FROM adh31users WHERE name = ?', [username]);
+    const [user] = await promisePool.query('SELECT name FROM adh31customers WHERE name = ?', [username]);
     console.log({ user })
 
     if (user.length > 0) {
         return res.send('Username is already taken')
     } else {
         bcrypt.hash(password, 10, async function (err, hash) {
-            const [creatUser] = await promisePool.query('INSERT INTO adh31users (name, password) VALUES (?, ?)', [username, hash]);
+            const [creatUser] = await promisePool.query('INSERT INTO adh31customers (name, password) VALUES (?, ?)', [username, hash]);
             res.redirect('/login')
         })
     }
@@ -128,7 +128,7 @@ router.get('/delete', async function (req, res, next) {
 router.post('/delete', async function (req, res, next) {
     const { password } = req.body;
     if (req.session.login === true) {
-        const [Delet] = await promisePool.query('DELETE FROM adh31users WHERE password = ?', [password]);
+        const [Delet] = await promisePool.query('DELETE FROM adh31customers WHERE password = ?', [password]);
         req.session.login = false
         res.redirect('/')
     }
