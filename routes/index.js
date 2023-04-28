@@ -15,7 +15,9 @@ const promisePool = pool.promise();
 module.exports = router;
 
 router.get('/', async function (req, res, next) {
+    const [rows] = await promisePool.query('SELECT * FROM adh31products');
     res.render('index.njk', {
+        rows: rows,
         title: 'Landing page',
         login: req.session.login || false
     });
@@ -26,6 +28,30 @@ router.get('/login', async function (req, res, next) {
 
     res.render('login.njk', { 
         title: 'Log',
+        login: req.session.login || false
+    });
+});
+
+router.get('/cart', async function (req, res, next) {
+    res.render('cart.njk', {
+        title: 'Cart',
+        login: req.session.login || false
+    });
+});
+
+router.get('/collection', async function (req, res, next) {
+    res.render('collection.njk', {
+        title: 'Collection',
+        login: req.session.login || false
+    });
+});
+
+router.get('/product/:id', async function (req, res, next) {
+    const [rows] = await promisePool.query("SELECT * FROM adh31products WHERE adh31products.id = ?;", [req.params.id]);
+    console.log(rows)
+    res.render('product.njk', {
+        row: rows[0],
+        title: 'Product',
         login: req.session.login || false
     });
 });

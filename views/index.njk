@@ -1,1 +1,16 @@
 {% extends "layout.njk" %}
+{% block content %}
+<div class="display">
+    {% for row in rows %}
+        <a href="/product/{{ row.id }}">
+            <div class="container">
+                <img src="/images/covers/{{ row.cover }}">
+                <span class="sale">50%</span>
+                <div class="bottom-left"><strong>{{ row.name }}</strong><br>{{ row.artist }}</div>
+                <div><span class="type">{{ row.mediatype }}</span><br><span class="moneysale">{{ row.price }} kr</span><span class="moneyold">{{ row.price }} kr</span></div>
+            </div>
+        </a>
+        <hr class="divider">
+    {% endfor %}
+</div>
+{% endblock %}
