@@ -53,7 +53,7 @@ router.post('/login', async function (req, res, next) {
                 req.session.username = username;
                 req.session.login = true;
                 req.session.userid = users[0].id;
-                return res.redirect('/profile');
+                return res.redirect('/cart');
             }
     
             else {
