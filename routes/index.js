@@ -40,7 +40,9 @@ router.get('/cart', async function (req, res, next) {
 });
 
 router.get('/collection', async function (req, res, next) {
+    const [rows] = await promisePool.query('SELECT * FROM adh31products');
     res.render('collection.njk', {
+        rows: rows,
         title: 'Collection',
         login: req.session.login || false
     });
