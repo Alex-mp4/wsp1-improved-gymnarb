@@ -467,7 +467,7 @@ hr.foot {
 
 .productgrid {
   display: grid;
-  grid-template-columns: [first] 17% [line2] 30% [line3] 30% [line4] 30%;
+  grid-template-columns: [first] 17% [line2] 30% [line3] 2% [line4] 30% [line5] 5%;
   grid-template-rows: [row1-start] 5% [row2] 5% [row3] 5% [row4] 5% [row5] 20%;
   gap: 0.9rem;
 }
@@ -481,9 +481,11 @@ hr.foot {
 
 .item2 {
   grid-column-start: 3;
-  grid-column-end: 4;
+  grid-column-end: 5;
   grid-row-start: 1;
   grid-row-end: 2;
+  font-size: 1.5rem;
+  font-weight: 900;
 }
 
 .item3 {
@@ -491,18 +493,22 @@ hr.foot {
   grid-column-end: 4;
   grid-row-start: 2;
   grid-row-end: 3;
+  font-size: 1.3rem;
+  background-color: #3A3A3A;
+  color: #F5F5F5;
+  border-radius: 100;
 }
 
 .item4 {
   grid-column-start: 3;
-  grid-column-end: 4;
+  grid-column-end: 5;
   grid-row-start: 3;
   grid-row-end: 4;
 }
 
 .item5 {
   grid-column-start: 3;
-  grid-column-end: 4;
+  grid-column-end: 5;
   grid-row-start: 5;
   grid-row-end: 6;
 }
