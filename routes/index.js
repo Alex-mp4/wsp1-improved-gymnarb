@@ -16,8 +16,9 @@ module.exports = router;
 
 router.get('/', async function (req, res, next) {
     const [rows] = await promisePool.query('SELECT * FROM adh31products');
+    const [bestsellers] = await promisePool.query('SELECT * FROM adh31products ORDER BY sales DESC LIMIT 3');
     res.render('index.njk', {
-        rows: rows,
+        rows: bestsellers,
         title: 'Landing page',
         login: req.session.login || false
     });

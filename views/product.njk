@@ -1,9 +1,18 @@
 {% extends "layout.njk" %}
 {% block content %}
-    <div class="container">
+<div>
+    <img src="/images/studio.jpg" class="navimg">
+    <div class="centered"><span>SUMMER SALE <small>up to</small> <red>50% OFF</red></span></div>
+</div>
+<div class="productgrid">
+    <div class="productimage item1">
         <img src="/images/covers/{{ row.cover }}">
-        <span class="sale">50%</span>
-        <div class="bottom-left"><strong>{{ row.name }}</strong><br>{{ row.artist }}</div>
-        <div><span class="type">{{ row.mediatype }}</span><br><span class="moneysale">{{ row.price }} kr</span><span class="moneyold">{{ row.price }} kr</span></div>
     </div>
+    <strong class="item2">{{ row.name }} - {{ row.artist }}</strong>
+    <span class="type item3">{{ row.mediatype }}</span>
+    <div class="item4">
+        <span class="moneysale">{{ row.price *  (1-(0.01 * row.sale)) }} kr</span><span class="moneyold">{{ row.price }} kr</span>
+    </div>
+    <button class="item5 productbutton">BUY<span class="sale">50%</span></button>
+</div>
 {% endblock %}
