@@ -129,7 +129,7 @@ body {
 
 .navgrid {
   display: grid;
-  grid-template-columns: [first] 20% [line2] 20% [line3] 20% [line4] 20% [line5] 20%;
+  grid-template-columns: [first] 5% [line2] 15% [line3] 20% [line4] 25% [line5] 20%;
   grid-template-rows: [row1-start] 100%;
   gap: 0.9rem;
 }
@@ -139,6 +139,8 @@ body {
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 2;
+  -ms-transform: translateY(20%);
+  transform: translateY(20%);
 }
 
 .navitem2 {
@@ -146,6 +148,8 @@ body {
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 2;
+  -ms-transform: translateY(20%);
+  transform: translateY(20%);
 }
 
 .navitem3 {
@@ -153,6 +157,8 @@ body {
   grid-column-end: 5;
   grid-row-start: 1;
   grid-row-end: 2;
+  -ms-transform: translateY(-5%);
+  transform: translateY(-5%);
 }
 
 .navitem4 {
@@ -160,6 +166,8 @@ body {
   grid-column-end: 6;
   grid-row-start: 1;
   grid-row-end: 2;
+  -ms-transform: translateY(20%);
+  transform: translateY(20%);
 }
 
 .navitem5 {
@@ -167,6 +175,8 @@ body {
   grid-column-end: 7;
   grid-row-start: 1;
   grid-row-end: 2;
+  -ms-transform: translateY(20%);
+  transform: translateY(20%);
 }
 
 nav img {
@@ -231,6 +241,11 @@ nav img {
   padding-left: 16px;
 }
 
+.bestproduct {
+  justify-content: space-around;
+  padding-bottom: 1rem;
+}
+
 .container {
   position: relative;
   text-align: center;
@@ -262,6 +277,7 @@ h3 {
   font-weight: 200;
   font-size: 32px;
   text-align: center;
+  padding-bottom: 2rem;
 }
 
 h4 {
@@ -451,7 +467,7 @@ hr.foot {
 
 .productgrid {
   display: grid;
-  grid-template-columns: [first] 10% [line2] 30% [line3] 30% [line4] 30%;
+  grid-template-columns: [first] 17% [line2] 30% [line3] 30% [line4] 30%;
   grid-template-rows: [row1-start] 5% [row2] 5% [row3] 5% [row4] 5% [row5] 20%;
   gap: 0.9rem;
 }

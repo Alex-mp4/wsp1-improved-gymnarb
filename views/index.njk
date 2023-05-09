@@ -4,7 +4,8 @@
     <img src="/images/studio.jpg">
     <div class="centered"><span>SUMMER SALE <small>up to</small> <red>50% OFF</red></span></div>
 </div>
-<div class="display">
+<h3>Current Bestsellers</h3>
+<div class="display bestproduct">
     {% for row in rows %}
         <a href="/product/{{ row.id }}">
             <div class="container">
@@ -16,7 +17,6 @@
                 </div>
             </div>
         </a>
-        <hr class="divider">
     {% endfor %}
 </div>
 <div class="landing">
