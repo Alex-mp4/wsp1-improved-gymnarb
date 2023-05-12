@@ -18,7 +18,7 @@ body {
 
 .navgrid {
     display: grid;
-    grid-template-columns: [first] 5% [line2] 15% [line3] 20% [line4] 25% [line5] 20%;
+    grid-template-columns: [first] 5% [line2] 14% [line3] 20% [line4] 25% [line5] 20%;
     grid-template-rows: [row1-start] 100%;
     gap: 0.9rem;
 }
@@ -104,7 +104,7 @@ nav img {
 
 .centered {
     position: absolute;
-    top: 22%;
+    top: 8.5rem;
     left: 65%;
     transform: translate(-50%, -50%);
     width: 80vw;
@@ -197,6 +197,7 @@ h6 {
 }
 
 .money {
+    color: #000000;
     font-weight: 600;
     font-size: 32px;
 }
@@ -205,6 +206,7 @@ h6 {
     font-weight: 600;
     font-size: 32px;
     color: #FF0000;
+    padding-right: 1vw;
 }
 
 .moneyold {
@@ -275,7 +277,7 @@ h6 {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80vw;
-    width: 35%;
+    width: 28rem;
 }
 
 .centered2 lp {
@@ -384,9 +386,6 @@ hr.foot {
     grid-row-start: 2;
     grid-row-end: 3;
     font-size: 1.3rem;
-    background-color: #3A3A3A;
-    color: #F5F5F5;
-    border-radius: 100;
 }
 
 .item4 {
@@ -407,7 +406,7 @@ hr.foot {
     background-color: #0d0d0d;
     color: #F5F5F5;
     border: none;
-    font-size: 3rem;
+    font-size: 3vw;
     font-weight: 700;
     opacity: 0.8;
     transition: 0.1s;

@@ -59,6 +59,18 @@ router.get('/product/:id', async function (req, res, next) {
     });
 });
 
+router.post('/product/:id', async function (req, res, next) {
+    let [user] = await promisePool.query('SELECT * FROM adh31users WHERE id = ?', [req.session.userid]);
+    if (!user) {
+        user = await promisePool.query('INSERT INTO adh31users (name) VALUES (?)', [req.session.userid]);
+    }
+
+    const userId = user.insertId || user[0].id;
+    const productId = id;
+
+    const [rows] = await promisePool.query('INSERT INTO adh31cart (userid, productid) VALUES (?, ?)', [userId, productId]);
+})
+
 router.post('/login', async function (req, res, next) {
     const { username, password } = req.body;
     const [users] = await promisePool.query('SELECT * FROM adh31customers WHERE name = ?', [username]);
