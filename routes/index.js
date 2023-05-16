@@ -49,27 +49,46 @@ router.get('/collection', async function (req, res, next) {
     });
 });
 
-router.get('/product/:id', async function (req, res, next) {
+router.get('/product/:id', async function (req, res, next) { //kontrollera att id finns, sanitera den (ifall det hade vart en bokstav eller inte existant siffra)
     const [rows] = await promisePool.query("SELECT * FROM adh31products WHERE adh31products.id = ?;", [req.params.id]);
+    let [id] = req.params.id;
     console.log(rows)
+    console.log(id)
+    console.log(req.session.login)
     res.render('product.njk', {
         row: rows[0],
+        id: id,
         title: 'Product',
         login: req.session.login || false
     });
 });
 
-router.post('/product/:id', async function (req, res, next) {
-    let [user] = await promisePool.query('SELECT * FROM adh31users WHERE id = ?', [req.session.userid]);
-    if (!user) {
-        user = await promisePool.query('INSERT INTO adh31users (name) VALUES (?)', [req.session.userid]);
+router.post('/product/:id', async function (req, res, next) { //kontrollera att de finns
+    if (req.session.userid > 0) {
+        const [rows] = await promisePool.query('INSERT INTO adh31cart (userid, productid) VALUES (?, ?)', [req.session.userid, req.params.id]);
+    }
+    else {
+        res.redirect('/login')
+    }
+})
+
+router.get('/cart', async function (req, res, next) {
+
+
+    if (req.session.userid > 0) {
+        const [rows] = await promisePool.query("SELECT * FROM adh31cart WHERE userid = ?", [req.session.userid]);
+        res.render('cart.njk', { 
+            title: 'Cart', 
+            name: req.session.username, 
+            rows: rows, 
+            login: req.session.login || false 
+        })
+    }
+    else {
+        res.redirect('/login')
     }
 
-    const userId = user.insertId || user[0].id;
-    const productId = id;
-
-    const [rows] = await promisePool.query('INSERT INTO adh31cart (userid, productid) VALUES (?, ?)', [userId, productId]);
-})
+});
 
 router.post('/login', async function (req, res, next) {
     const { username, password } = req.body;
@@ -110,7 +129,9 @@ router.post('/login', async function (req, res, next) {
 
 router.get('/logout', async function (req, res, next) {
 
-    res.render('logout.njk', { title: 'Logout', login: req.session.login || false });
+    res.render('logout.njk', { 
+        title: 'Logout', 
+        login: req.session.login || false });
     req.session.login = false;
 });
 
@@ -177,6 +198,8 @@ router.post('/delete', async function (req, res, next) {
 
 router.get('/accessdenied', async function (req, res, next) {
 
-    res.render('accessdenied.njk', { title: 'Access Denied', login: req.session.login || false });
-
+    res.render('accessdenied.njk', { 
+        title: 'You need to be logged in to use this feature', 
+        login: req.session.login || false 
+    });
 });

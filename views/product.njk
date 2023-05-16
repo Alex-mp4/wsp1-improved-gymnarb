@@ -18,10 +18,13 @@
         <span class="money">{{ row.price }} kr</span>
         {% endif %}
     </div>
-    <button type="submit" class="item5 productbutton">ADD TO CART
-        <!--{% if row.sale > 0 %}
-            <span class="productsale">50%</span>
-        {% endif %}-->
-    </button>
+    <form action="/product/{{ row.id }}" method="POST" class="item5">
+        <input type="text" name="id" placeholder="{{ row.id }}" style="height: 0px; padding: 0; margin: 0; border: none;">
+        <button type="submit" class="productbutton">ADD TO CART
+            <!--{% if row.sale > 0 %}
+                <span class="productsale">50%</span>
+            {% endif %}-->
+        </button>
+    </form>
 </div>
 {% endblock %}
