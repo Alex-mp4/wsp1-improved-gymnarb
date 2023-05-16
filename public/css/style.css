@@ -548,4 +548,36 @@ button:active {
   margin-right: 1rem;
 }
 
+.title {
+  font-weight: 500;
+  font-size: 3rem;
+  color: #000000;
+}
+
+.logcontainer {
+  width: 40%;
+  text-align: center;
+  background-color: #FFFFFF;
+  position: relative;
+  color: white;
+  padding: 1rem;
+  margin: auto;
+}
+
+.logcontainer input {
+  width: 90%;
+  margin-bottom: 1.5rem;
+}
+
+.logcontainer button {
+  width: 90%;
+  background-color: #0d0d0d;
+  color: #F5F5F5;
+  border: none;
+}
+
+.logcontainer button:hover {
+  opacity: 0.85;
+}
+
 /*# sourceMappingURL=style.css.map */
