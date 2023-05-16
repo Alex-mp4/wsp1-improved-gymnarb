@@ -16,6 +16,14 @@ body {
     display: flex;
 }
 
+.coldisplay {
+    display: flex;
+}
+
+.coldisplay:nth-child(3n) {
+    display: block;
+}
+
 .navgrid {
     display: grid;
     grid-template-columns: [first] 5% [line2] 14% [line3] 20% [line4] 25% [line5] 20%;
