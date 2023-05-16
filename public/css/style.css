@@ -488,6 +488,7 @@ hr.foot {
   grid-row-end: 2;
   font-size: 1.5rem;
   font-weight: 900;
+  color: #000000;
 }
 
 .item3 {
@@ -533,6 +534,18 @@ button:active {
   -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
   box-shadow: inset 0px 0px 5px #c1c1c1;
   outline: none;
+}
+
+.cartcontainer {
+  position: relative;
+  color: white;
+  padding: 1rem;
+}
+
+.cartcontainer img {
+  width: 8vw;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 /*# sourceMappingURL=style.css.map */

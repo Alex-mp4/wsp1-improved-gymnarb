@@ -33,13 +33,6 @@ router.get('/login', async function (req, res, next) {
     });
 });
 
-router.get('/cart', async function (req, res, next) {
-    res.render('cart.njk', {
-        title: 'Cart',
-        login: req.session.login || false
-    });
-});
-
 router.get('/collection', async function (req, res, next) {
     const [rows] = await promisePool.query('SELECT * FROM adh31products');
     res.render('collection.njk', {
@@ -73,21 +66,13 @@ router.post('/product/:id', async function (req, res, next) { //kontrollera att 
 })
 
 router.get('/cart', async function (req, res, next) {
-
-
-    if (req.session.userid > 0) {
-        const [rows] = await promisePool.query("SELECT * FROM adh31cart WHERE userid = ?", [req.session.userid]);
-        res.render('cart.njk', { 
-            title: 'Cart', 
-            name: req.session.username, 
-            rows: rows, 
-            login: req.session.login || false 
-        })
-    }
-    else {
-        res.redirect('/login')
-    }
-
+    const [rows] = await promisePool.query("SELECT adh31products.* FROM adh31cart INNER JOIN adh31products ON adh31cart.productid=adh31products.id WHERE adh31cart.userid = ?", [req.session.userid]);
+    console.log(rows)
+    res.render('cart.njk', { 
+        title: 'Cart', 
+        rows: rows, 
+        login: req.session.login || false 
+    })
 });
 
 router.post('/login', async function (req, res, next) {
@@ -113,7 +98,7 @@ router.post('/login', async function (req, res, next) {
                 req.session.username = username;
                 req.session.login = true;
                 req.session.userid = users[0].id;
-                return res.redirect('/cart');
+                return res.redirect('/');
             }
     
             else {

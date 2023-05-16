@@ -11,15 +11,19 @@
         <div class="navitem3">
             <h1><a href="/">dr.peppa</a></h1>
         </div>
+        {% if login === false %}
         <div class="display navitem4">
             <a href="/login" class="display">
                 <img src="/images/icons/person.svg" alt="Log-in Icon">
                 <h2>Log in</h2>
             </a>
         </div>
+        {% endif %}
+        {% if login === true %}
         <div class="navitem5">
             <a href="/cart">
                 <img src="/images/icons/shopping_bag.svg" alt="Shoppingbag">
             </a>
         </div>
+        {% endif %}
 </nav>

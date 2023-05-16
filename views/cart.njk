@@ -1,2 +1,19 @@
 {% extends "layout.njk" %}
-<p>wow</p>
+{% block  content %}
+{% for row in rows %}
+<a href="/product/{{ row.id }}">
+<div class="cartcontainer display">
+    <img src="/images/covers/{{ row.cover }}">
+    <div>
+    <strong class="item2">{{ row.name }} - {{ row.artist }}</strong><br>
+    {% if row.sale > 0 %}
+        <span class="moneysale">{{ row.price *  (1-(0.01 * row.sale)) }} kr</span>
+        <span class="moneyold">{{ row.price }} kr</span>
+        {% else %}
+        <span class="money">{{ row.price }} kr</span>
+    {% endif %}
+    </div>
+</div>
+</a>
+{% endfor %}
+{% endblock %}
