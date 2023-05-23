@@ -6,7 +6,7 @@
 </div>
 <div class="coldisplay">
     {% for row in rows %}
-        <a href="/product/{{ row.id }}">
+        <a href="/product/{{ row.id }}" class="colprod">
             <div class="container">
                 <img src="/images/covers/{{ row.cover }}">
                 {% if row.sale > 0 %}
@@ -26,7 +26,6 @@
                 </div>
             </div>
         </a>
-        <hr class="divider">
     {% endfor %}
 </div>
 {% endblock %}

@@ -18,10 +18,12 @@ body {
 
 .coldisplay {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center
 }
 
-.coldisplay:nth-child(3n) {
-    display: block;
+.colprod {
+    margin: 1rem;
 }
 
 .navgrid {
@@ -291,6 +293,124 @@ h6 {
 .centered2 lp {
     font-size: 36px;
     font-weight: 900;
+}
+
+.itemgrid {
+    display: grid;
+    grid-template-columns: [first] 40% [line2] 60%;
+    grid-template-rows: [row1-start] 25% [row2] 25% [row3] 25% [row4] 25%;
+    width: 70vw;
+    height: 20rem;
+    padding-top: 2.1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin: auto;
+}
+
+.itemitem1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    margin-right: 2rem;
+}
+
+.itemitem2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.itemitem3 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.itemitem4 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.itemitem5 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+.itemgrid2 {
+    display: grid;
+    grid-template-columns: [first] 60% [line2] 40%;
+    grid-template-rows: [row1-start] 25% [row2] 25% [row3] 25% [row4] 25%;
+    width: 70vw;
+    height: 20rem;
+    padding-top: 2.1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin: auto;
+}
+
+.itemitem21 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    margin-right: 2rem;
+}
+
+.itemitem22 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.itemitem23 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.itemitem24 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.itemitem25 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+.smallitem {
+    display: flex;
+}
+
+.smallitem img {
+    width: 50px;
+    height: 50px;
+    margin-right: 1rem;
+}
+
+.smallitem span {
+    font-size: 1rem;
+}
+
+.smallitem span:link {
+    color: #000000;
+}
+
+.smallitem span:visited {
+    color: #000000;
 }
 
 footer {
