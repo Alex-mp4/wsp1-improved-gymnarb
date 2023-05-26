@@ -76,6 +76,20 @@ router.get('/cart', async function (req, res, next) {
     })
 });
 
+router.post('/cart', async function (req, res, next) { 
+    let { productid } = req.body;
+    if (productid > 0) {
+        productid = parseInt(productid);
+        const [rows] = await promisePool.query('DELETE FROM adh31cart WHERE userid = ? AND productid = ? LIMIT 1;', [req.session.userid, productid]);
+        res.redirect('/cart');
+
+    }
+    else {
+        const [rows] = await promisePool.query('DELETE FROM adh31cart WHERE userid = ?;', [req.session.userid]);
+        res.redirect('/cart');
+    }
+})
+
 router.post('/login', async function (req, res, next) {
     const { username, password } = req.body;
     const [users] = await promisePool.query('SELECT * FROM adh31customers WHERE name = ?', [username]);

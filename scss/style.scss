@@ -28,7 +28,7 @@ body {
 
 .navgrid {
     display: grid;
-    grid-template-columns: [first] 5% [line2] 14% [line3] 20% [line4] 25% [line5] 20%;
+    grid-template-columns: [first] 0% [line2] 20% [line3] 20% [line4] 25% [line5] 20%;
     grid-template-rows: [row1-start] 100%;
     gap: 0.9rem;
 }
@@ -202,8 +202,8 @@ h6 {
 }
 
 .type {
-    font-weight: 600;
-    font-size: 16px;
+    font-weight: 700;
+    font-size: 18px;
 }
 
 .money {
@@ -304,7 +304,8 @@ h6 {
     padding-top: 2.1rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    margin: auto;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .itemitem1 {
@@ -352,7 +353,8 @@ h6 {
     padding-top: 2.1rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    margin: auto;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .itemitem21 {
@@ -411,6 +413,13 @@ h6 {
 
 .smallitem span:visited {
     color: #000000;
+}
+
+.collectionbutton {
+    text-align: center;
+    margin-top: 6rem;
+    font-weight: 700;
+    font-size: 18px;
 }
 
 footer {
@@ -564,6 +573,25 @@ button:active {
     width: 8vw;
     margin-left: 1rem;
     margin-right: 1rem;
+}
+
+.buybutton {
+    margin-left: auto; 
+    margin-right: 0;
+}
+
+.buybutton input {
+    height: 0px; 
+    padding: 0; 
+    margin: 0; 
+    border: none;
+}
+
+.buyallbutton input {
+    height: 0px; 
+    padding: 0; 
+    margin: 0; 
+    border: none;
 }
 
 .title {
