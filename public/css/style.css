@@ -736,4 +736,79 @@ button:active {
   opacity: 0.85;
 }
 
+@media (max-width: 728px) {
+  .display {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: auto;
+  }
+  html {
+    display: flex;
+  }
+  .navgrid {
+    grid-template-columns: [first] 0% [line2] 0% [line3] 0% [line4] 60% [line5] 0%;
+  }
+  .navitem2 {
+    display: none;
+  }
+  .navimg {
+    height: 3rem;
+  }
+  .centered {
+    position: absolute;
+    top: 6.2rem;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+  }
+  .container {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+  }
+  .logcontainer {
+    width: 90%;
+  }
+  .cartcontainer {
+    display: block;
+  }
+  .cartcontainer img {
+    width: 30%;
+  }
+  .itemgrid {
+    grid-template-columns: [first] 0% [line2] 100%;
+    margin-bottom: 0.5rem;
+  }
+  .itemgrid2 {
+    grid-template-columns: [first] 100% [line2] 0%;
+    margin-top: 0rem;
+  }
+  .itemgrid .container {
+    display: none;
+  }
+  .itemgrid2 .container {
+    display: none;
+  }
+  .productgrid {
+    display: block;
+    width: 60%;
+    margin: auto;
+  }
+  .collectionbutton {
+    margin-top: 0rem;
+  }
+  .customerservice {
+    width: 9.3rem;
+    height: 1.5rem;
+  }
+  .customerservice img {
+    display: none;
+  }
+  .footerbutton {
+    display: none;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -1,5 +1,10 @@
 {% extends "layout.njk" %}
 {% block  content %}
+<a href="/logout">
+    <button>
+        Logout
+    </button>
+</a>
 {% for row in rows %}
 <a href="/product/{{ row.id }}">
 <div class="cartcontainer display">
@@ -16,7 +21,7 @@
     <div class="buybutton">
         <form action="cart" method="POST" class="item5">
             <input type="text" name="productid" value="{{ row.id }}">
-            <button type="submit" class="productbutton">BUY
+            <button type="submit" class="productbutton">REMOVE
                 <!--{% if row.sale > 0 %}
                     <span class="productsale">50%</span>
                 {% endif %}-->
