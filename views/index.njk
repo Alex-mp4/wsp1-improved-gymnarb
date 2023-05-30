@@ -67,7 +67,7 @@
         {% else %}
         <div class="smallitem">
             <img src="/images/covers/{{ row.cover }}">
-            <div style="width: 100%; justify-content: space-between;" class="display">
+            <div class="display listfixer">
                 <div>
                     <strong>{{ row.name }}</strong>
                     <br>{{ row.artist }}
@@ -115,12 +115,12 @@
         {% else %}
         <div class="smallitem">
             <img src="/images/covers/{{ row.cover }}">
-            <div style="width: 100%; justify-content: space-between;" class="display">
+            <div class="display listfixer">
                 <div>
                     <strong>{{ row.name }}</strong>
                     <br>{{ row.artist }}
                 </div>
-                <div style="padding-right: 4vw;">
+                <div class="priceadjust">
                     {% if row.sale > 0 %}
                     <span class="moneysale">{{ row.price *  (1-(0.01 * row.sale)) }} kr</span>
                     <span class="moneyold">{{ row.price }} kr</span>

@@ -634,6 +634,15 @@ button:active {
     opacity: 0.85;
 }
 
+.listfixer {
+    width: 100%; 
+    justify-content: space-between;
+}
+
+.priceadjust {
+    padding-right: 4vw;
+}
+
 @media (max-width: 728px) {
     .display {
         display: flex;
