@@ -15,11 +15,13 @@ const promisePool = pool.promise();
 module.exports = router;
 
 router.get('/', async function (req, res, next) {
-    const [products] = await promisePool.query('SELECT * FROM adh31products LIMIT 5');
+    const [products1] = await promisePool.query('SELECT * FROM adh31products LIMIT 5');
+    const [products2] = await promisePool.query('SELECT * FROM adh31products ORDER BY id DESC LIMIT 5');
     const [bestsellers] = await promisePool.query('SELECT * FROM adh31products ORDER BY sales DESC LIMIT 3');
     res.render('index.njk', {
         rows: bestsellers,
-        prod: products,
+        prod: products1,
+        prod2: products2,
         title: 'Landing page',
         login: req.session.login || false
     });
